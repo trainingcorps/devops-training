@@ -13,3 +13,11 @@ resource "aws_instance" "prod_server" {
     Name = var.commontag
   }
 }
+
+data "aws_vpc" "selected" {
+  filter {
+    name   = "tag:Name"
+    values = ["devops_project"]
+  }
+}
+
